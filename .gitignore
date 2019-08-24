@@ -1,8 +1,4 @@
 node_modules
-.next
-.idea
-.cache-loader
-production-server
 
 ### Node ###
 # Logs
@@ -15,5 +11,4 @@ package-lock.json
 
 #config
 .vscode
-
-deploy.sh
+dist

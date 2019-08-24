@@ -4,9 +4,9 @@
  * point-free functions are those that don't need to state the arguments / data
  * they need, they are usually created out of partially applied functions
  */
-import {  pipe } from 'fp-ts/lib/pipeable';
-import { flow } from 'fp-ts/lib/function';
-import { compose } from 'ramda';
+import {  pipe } from "fp-ts/lib/pipeable";
+import { flow } from "fp-ts/lib/function";
+import { compose } from "ramda";
 
 type Fn = (a: any) => any;
 
@@ -33,8 +33,8 @@ const shoutAllan = compose2(exclaim, toUpperCase, addName);
 
 // application
 function main() {
-    shoutAllan('send in the clowns');
-    shout('send in the clowns');
+    shoutAllan("send in the clowns");
+    shout("send in the clowns");
 }
 
 // FP-ts and ramda have inbuilt  compose functions

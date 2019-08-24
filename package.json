@@ -5,9 +5,9 @@
     "public": true
   },
   "scripts": {
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "lint": "tslint",
     "start": "ts-node src/main.ts --dir examples",
-    "build": "tsc"
+    "build": "tsc --project tsconfig.json"
   },
   "author": "epicallan.al@gmail.com",
   "license": "ISC",

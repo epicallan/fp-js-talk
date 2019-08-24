@@ -15,7 +15,7 @@ const mkPerson = (name: string) => (age: number): IPerson => {
 };
 
 function fakePeople(): IPerson[] {
-    const longNamePersonFactory = mkPerson('Some longName');
+    const longNamePersonFactory = mkPerson("Some longName");
     return [
         longNamePersonFactory(23),
         longNamePersonFactory(45),
@@ -29,5 +29,5 @@ const setPersonName = (name: string) => (person: IPerson): IPerson => {
 };
 
 function fakePeopleWithShortName(): IPerson[] {
-    return fakePeople().map(setPersonName('shortName'));
+    return fakePeople().map(setPersonName("shortName"));
 }

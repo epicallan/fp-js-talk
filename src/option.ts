@@ -1,5 +1,5 @@
-import { some, none, elem, Option, fold, map, chain } from 'fp-ts/lib/Option';
-import {  pipe } from 'fp-ts/lib/pipeable';
+import { some, none, Option, fold, map, chain } from "fp-ts/lib/Option";
+import {  pipe } from "fp-ts/lib/pipeable";
 
 /**
  * why we need to work with options
@@ -15,7 +15,7 @@ interface IPerson {
 
 function getPerson(_name: string): Option<IPerson> {
   // assume a DB fetch
-  return some({name: 'Allan', age: 28 });
+  return some({name: "Allan", age: 28 });
 }
 
 // pattern matching example
@@ -29,7 +29,7 @@ function maybeGetName(maybePerson: Option<IPerson>): Option<string> {
 
 // transformation
 function upperCaseName(person: IPerson): IPerson {
-  return {...person, name: 'ALLAN'};
+  return {...person, name: "ALLAN"};
 }
 
 function makeMiddleAged(person: IPerson): IPerson {
@@ -39,7 +39,7 @@ function makeMiddleAged(person: IPerson): IPerson {
 // transformation pipeline
 function transformPerson(): Option<IPerson> {
   return pipe(
-    getPerson('allan'),
+    getPerson("allan"),
     map(upperCaseName),
     map(makeMiddleAged),
   );
@@ -47,13 +47,13 @@ function transformPerson(): Option<IPerson> {
 
 function getPersonJob(person: IPerson): Option<string> {
   // assume a DB call
-  return some('engineer');
+  return some("engineer");
 }
 
 // composition and code branching
 function chainExample(): Option<string> {
   return pipe(
-    getPerson('allan'),
+    getPerson("allan"),
     chain(getPersonJob)
   );
 }
