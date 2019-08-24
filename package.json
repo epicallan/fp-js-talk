@@ -6,7 +6,7 @@
   },
   "scripts": {
     "lint": "tslint",
-    "start": "ts-node src/main.ts --dir examples",
+    "ts-node": "ts-node --project tsconfig.json",
     "build": "tsc --project tsconfig.json"
   },
   "author": "epicallan.al@gmail.com",

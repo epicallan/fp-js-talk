@@ -57,3 +57,5 @@ function chainExample(): Option<string> {
     chain(getPersonJob)
   );
 }
+
+console.log("option");

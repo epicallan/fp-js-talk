@@ -7,6 +7,10 @@
 type MapFn <A, B> = (a: A) => B;
 
 class Maybe<T> {
+    public static nothing<T>() {
+       return new Maybe<T>(null);
+    }
+
     public value: T;
 
     constructor(x: T) {
@@ -33,7 +37,7 @@ interface IPerson {
 
 // transformation
 function upperCaseName(person: IPerson): IPerson {
-    return {...person, name: 'ALLAN'};
+    return {...person, name: "ALLAN"};
 }
 
 function makeMiddleAged(person: IPerson): IPerson {
@@ -48,11 +52,15 @@ function transformPerson(person): Maybe<IPerson> {
 
 function getPerson(_name: string): Promise<IPerson> {
     // assume db call
-    return Promise.resolve({age: 28, name: 'allan'});
+    return Promise.resolve({age: 28, name: "allan"});
+}
+
+function getOldPerson(person: IPerson): Maybe<IPerson> {
+ return person.age < 18 ? Maybe.nothing() : new Maybe(person);
 }
 
 // separation to illustrate code purity
 async function main() {
-    const person = await getPerson('allan');
+    const person = await getPerson("allan");
     return transformPerson(person);
 }
