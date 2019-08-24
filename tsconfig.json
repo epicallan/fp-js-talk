@@ -2,8 +2,9 @@
   "compileOnSave": false,
   "compilerOptions": {
     "noEmit": true,
+    // "outDir": "dist",
     "target": "es5",
-    "module": "esnext",
+    "module": "commonjs",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,

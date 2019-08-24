@@ -11,7 +11,11 @@ class Maybe<T> {
        return new Maybe<T>(null);
     }
 
-    public value: T;
+    public static just<T>(val: T) {
+        return new Maybe<T>(null);
+     }
+
+    private value: T;
 
     constructor(x: T) {
         this.value = x;
@@ -44,22 +48,22 @@ function makeMiddleAged(person: IPerson): IPerson {
     return {...person, age: 40};
 }
 
-function transformPerson(person): Maybe<IPerson> {
-  return person
+function transformPerson(maybePerson: Maybe<IPerson>): Maybe<IPerson> {
+  return maybePerson
       .map(upperCaseName)
       .map(makeMiddleAged);
 }
 
-function getPerson(_name: string): Promise<IPerson> {
+function getPerson(_name: string): Promise<Maybe<IPerson>> {
     // assume db call
-    return Promise.resolve({age: 28, name: "allan"});
+    return Promise.resolve(Maybe.just({age: 28, name: "allan"}));
 }
 
 function getOldPerson(person: IPerson): Maybe<IPerson> {
- return person.age < 18 ? Maybe.nothing() : new Maybe(person);
+    return person.age < 18 ? Maybe.nothing() : Maybe.just(person);
 }
 
-// separation to illustrate code purity
+// separation of pure and impure to illustrate code purity
 async function main() {
     const person = await getPerson("allan");
     return transformPerson(person);
