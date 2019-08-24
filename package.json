@@ -1,0 +1,39 @@
+{
+  "name": "@epicallan/js-to-ts",
+  "version": "1.1.3",
+  "publish": {
+    "public": true
+  },
+  "scripts": {
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "start": "ts-node src/main.ts --dir examples",
+    "build": "tsc"
+  },
+  "author": "epicallan.al@gmail.com",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "dependencies": {
+    "@types/node": "^12.7.2",
+    "fp-ts": "^2.0.5",
+    "ramda": "^0.26.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "tslint": "5.9.1"
+  },
+  "bin": {
+    "js-to-ts": "index.js"
+  },
+  "git-pre-hooks": {
+    "pre-push": [
+      "npm run lint",
+      "npm run build"
+    ]
+  }
+}
